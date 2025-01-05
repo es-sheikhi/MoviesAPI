@@ -4,10 +4,10 @@ using MoviesAPI.Repositories.Interfaces;
 
 namespace MoviesAPI.Repositories
 {
-    public class CategoryARepository : ICategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly ApplicationDbContext _context;
-        public CategoryARepository(ApplicationDbContext context)
+        public CategoryRepository(ApplicationDbContext context)
         {
             _context = context;
         }

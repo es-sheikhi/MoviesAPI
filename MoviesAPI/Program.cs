@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
+using MoviesAPI.Mappers;
+using MoviesAPI.Repositories;
+using MoviesAPI.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,9 @@ builder.Services.AddDbContext <ApplicationDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddAutoMapper(typeof(CategoryMapper));
 
 var app = builder.Build();
 
