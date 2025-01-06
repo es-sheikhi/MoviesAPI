@@ -2,7 +2,7 @@
 
 namespace MoviesAPI.Models.DTOs
 {
-    public class CategoryDTO
+    public class CategoryDto
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "{0} is required!")]

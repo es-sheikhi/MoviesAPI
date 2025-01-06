@@ -10,5 +10,17 @@ namespace MoviesAPI.Data
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Category>().HasData(
+                new Category
+                {
+                    Id = 2,
+                    Name = "Romance"
+                });
+        }
     }
 }

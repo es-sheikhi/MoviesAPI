@@ -23,7 +23,7 @@ namespace MoviesAPI.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public IActionResult GetCategories()
         {
-            var categories = _categoryRepository.GetCategories().Select(_mapper.Map<CategoryDTO>);
+            var categories = _categoryRepository.GetCategories().Select(_mapper.Map<CategoryDto>);
             return Ok(categories);
         }
 
@@ -39,7 +39,7 @@ namespace MoviesAPI.Controllers
             {
                 return NotFound();
             }
-            var categoryDto = _mapper.Map<CategoryDTO>(category);
+            var categoryDto = _mapper.Map<CategoryDto>(category);
             return Ok(categoryDto);
         }
 
@@ -48,7 +48,7 @@ namespace MoviesAPI.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult Create(CreateCategoryDTO categoryDTO)
+        public IActionResult Create(CreateCategoryDto categoryDTO)
         {
             if (!ModelState.IsValid || categoryDTO == null)
             {
@@ -74,7 +74,7 @@ namespace MoviesAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult Update(int id, CategoryDTO categoryDTO)
+        public IActionResult Update(int id, CategoryDto categoryDTO)
         {
             if(!ModelState.IsValid || categoryDTO==null || id != categoryDTO.Id)
             {

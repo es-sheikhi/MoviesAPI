@@ -20,7 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddAutoMapper(typeof(CategoryMapper));
+builder.Services.AddAutoMapper(typeof(ModelMapper));
 
 var app = builder.Build();
 
